@@ -1,11 +1,10 @@
-# Welcome to your Jupyter Book
+# Welcome to your My Jupyter Book
 
-This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
+This is a book made by yoojin Hwang.
+In this notebook, you can view all the lab sessions for data structures at a glance. Simple code and examples are included in each chapter."
 
-Check out the content pages bundled with this sample book to see more.
+Check out the content pages bundled with this book to see more.
 
 ```{tableofcontents}
+
 ```
