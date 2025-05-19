@@ -181,9 +181,10 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">DataStructure</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Structure</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="1_Intro_to_Python_Lab.html">Intro to Python Lab</a></li>
+
 
 
 
@@ -220,6 +221,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="7_Queue_Lab.html">Queue</a></li>
+
 
 
 
@@ -553,8 +555,8 @@ n!=
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time for iterative approach: 0.0005 minutes
-Time for recursive approach: 0.0015 minutes
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time for iterative approach: 0.0 minutes
+Time for recursive approach: 0.0027 minutes
 </pre></div>
 </div>
 </div>
@@ -640,6 +642,25 @@ fib_recursive2:  55
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="new-question">
 <h1>New Question<a class="headerlink" href="#new-question" title="Link to this heading">#</a></h1>
+<p>: return the sum of array elements</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">sum_array</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">sum_array</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">123</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sum_array</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>  
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>129
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">

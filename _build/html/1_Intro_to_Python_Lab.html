@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '1_Intro_to_Python_Lab';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="4. Set Up" href="2_Intro_to_Python_Code_Lab.html" />
+    <link rel="next" title="Intro to Python code" href="2_Intro_to_Python_Code_Lab.html" />
     <link rel="prev" title="Welcome to your Jupyter Book" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -179,35 +179,48 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">DataStructure</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Structure</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Intro to Python Lab</a></li>
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="2_Intro_to_Python_Code_Lab.html">4. Set Up</a></li>
 
-
-<li class="toctree-l1"><a class="reference internal" href="3_Recursion_Lab.html">7. Set Up</a></li>
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="4_Array_Lab.html">12. Set Up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Intro_to_Python_Code_Lab.html">Intro to Python code</a></li>
 
 
 
 
-
-<li class="toctree-l1"><a class="reference internal" href="5_Linked_List_Lab.html">Set Up</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="3_Recursion_Lab.html">Recursion</a></li>
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="6_Stack_Lab.html">23. Set Up</a></li>
 
 
-<li class="toctree-l1"><a class="reference internal" href="7_Queue_Lab.html">26. Set Up</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="4_Array_Lab.html">Array</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="5_Linked_List_Lab.html">Linked List</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="6_Stack_Lab.html">Stack</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="7_Queue_Lab.html">Queue</a></li>
+
+
 
 
 </ul>
@@ -441,6 +454,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-re-naming-a-module">Module: Re-naming a Module</a></li>
 </ul>
 </li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#new-question">New Question</a></li>
 </ul>
 
             </nav>
@@ -914,7 +928,7 @@ Access age variable inside object: 25
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>My name is Amy
 I&#39;m 55 years old
-&lt;__main__.MyClass object at 0x00000201AA8EA0E0&gt;
+&lt;__main__.MyClass object at 0x000002827339CA30&gt;
 </pre></div>
 </div>
 </div>
@@ -998,7 +1012,7 @@ I&#39;m 55 years old
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.MyClass object at 0x00000201AA8E8580&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.MyClass object at 0x000002827339E7D0&gt;
 My name is Apple and I&#39;m 55 years old.
 </pre></div>
 </div>
@@ -1051,9 +1065,9 @@ age after modifying =  40
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">mymodule</span>
-<span class="n">mymodule</span><span class="o">.</span><span class="n">myname</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Ewha&quot;</span><span class="p">)</span>
-<span class="n">mymodule</span><span class="o">.</span><span class="n">myage</span><span class="p">(</span><span class="n">age</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">DataStructureCode.mymodule</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="n">myname</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Ewha&quot;</span><span class="p">)</span>
+<span class="n">myage</span><span class="p">(</span><span class="n">age</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1073,15 +1087,17 @@ I&#39;m 25 years old
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mymodule</span><span class="w"> </span><span class="kn">import</span> <span class="n">myname</span>
-<span class="n">mymodule</span><span class="o">.</span><span class="n">myname</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Ewha&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w">  </span><span class="nn">DataStructureCode.mymodule</span><span class="w"> </span><span class="kn">import</span> <span class="n">myname</span>
+<span class="n">myname</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Ewha&quot;</span><span class="p">)</span>
 <span class="c1"># mymodule.myage(age=25) # a function myage is not imported</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This is a function inside of a file mymodule.py
-My name is Ewha
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>My name is Ewha
 </pre></div>
 </div>
 </div>
@@ -1094,7 +1110,7 @@ My name is Ewha
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">mymodule</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">md</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">DataStructureCode.mymodule</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">md</span>
 <span class="n">md</span><span class="o">.</span><span class="n">myname</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Ewha&quot;</span><span class="p">)</span>
 <span class="n">md</span><span class="o">.</span><span class="n">myage</span><span class="p">(</span><span class="n">age</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
 </pre></div>
@@ -1109,6 +1125,41 @@ I&#39;m 25 years old
 </div>
 </div>
 </section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="new-question">
+<h1>New Question<a class="headerlink" href="#new-question" title="Link to this heading">#</a></h1>
+<p>:Write a program that prints the names and ages of all people who are 20 years old or older.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">DataStructureCode.mymodule</span><span class="w"> </span><span class="kn">import</span> <span class="n">myname</span><span class="p">,</span> <span class="n">myage</span>
+
+<span class="n">people</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Alice&quot;</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span>
+    <span class="s2">&quot;Bob&quot;</span><span class="p">:</span> <span class="mi">19</span><span class="p">,</span>
+    <span class="s2">&quot;Carol&quot;</span><span class="p">:</span> <span class="mi">27</span><span class="p">,</span>
+    <span class="s2">&quot;David&quot;</span><span class="p">:</span> <span class="mi">18</span>
+<span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;People aged 20 or older:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span> <span class="ow">in</span> <span class="n">people</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">20</span><span class="p">:</span>
+        <span class="n">myname</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">myage</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>People aged 20 or older:
+This is a function inside of a file mymodule.py
+My name is Alice
+I&#39;m 23 years old
+This is a function inside of a file mymodule.py
+My name is Carol
+I&#39;m 27 years old
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1155,7 +1206,7 @@ I&#39;m 25 years old
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>Set Up</p>
+        <p class="prev-next-title">Intro to Python code</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1211,6 +1262,7 @@ I&#39;m 25 years old
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-re-naming-a-module">Module: Re-naming a Module</a></li>
 </ul>
 </li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#new-question">New Question</a></li>
 </ul>
 
   </nav></div>

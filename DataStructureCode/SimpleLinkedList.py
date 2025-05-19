@@ -80,6 +80,7 @@ class SimpleLinkedList:
 		self.clear()
 		for index in range(a.size()):
 			self.append(a.get(index))
+		
 
 	def index(self, x):
 		curr = self.head.next

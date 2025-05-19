@@ -179,9 +179,10 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">DataStructure</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Structure</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="1_Intro_to_Python_Lab.html">Intro to Python Lab</a></li>
+
 
 
 
@@ -218,6 +219,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="7_Queue_Lab.html">Queue</a></li>
+
 
 
 
@@ -550,6 +552,33 @@ After removal: [1 2 3 4 6]
 </div>
 </div>
 </div>
+<ul class="simple">
+<li><p><strong>Time Complexity</strong></p></li>
+<li><p><strong>1. Access</strong>
+Time complexity: O(1)</p>
+<ul>
+<li><p>Arrays use contiguous memory, so the address of any element can be computed directly using its index</p></li>
+</ul>
+</li>
+<li><p><strong>2. Search</strong>
+Time complexity: O(n)</p>
+<ul>
+<li><p>To find a value, you may need to check each element one by one in the worst case (linear search).</p></li>
+</ul>
+</li>
+<li><p><strong>3. Insertion</strong>
+Time complexity: O(n)</p>
+<ul>
+<li><p>To insert an element, you must shift all the elements after the insertion point to the right to make space.</p></li>
+</ul>
+</li>
+<li><p><strong>4. Deletion</strong>
+Time complexity: O(n)</p>
+<ul>
+<li><p>You must shift all the elements after the deleted element to the left to fill the gap.</p></li>
+</ul>
+</li>
+</ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="example-2">
 <h1>Example 2<a class="headerlink" href="#example-2" title="Link to this heading">#</a></h1>
@@ -561,6 +590,37 @@ After removal: [1 2 3 4 6]
 <li><p><strong>Dynamic vs Static</strong>: How do Python lists (dynamic arrays) and static arrays differ in terms of resizing and memory allocation?</p></li>
 <li><p><strong>Access and manipulation</strong>: How do access and manipulation operations differ between Python lists and arrays?</p></li>
 </ul>
+<ul class="simple">
+<li><p><strong>Storage Structure</strong>:</p></li>
+</ul>
+<p>Python lists use non-contiguous memory and store references to objects.</p>
+<p>Arrays use contiguous memory and store actual values directly.</p>
+<ul class="simple">
+<li><p><strong>Performance</strong>:</p></li>
+</ul>
+<p>Both support fast indexing (O(1)).</p>
+<p>Lists are slower for numerical operations due to dynamic typing.</p>
+<p>Arrays are faster, especially for large numerical computations (e.g., NumPy).</p>
+<ul class="simple">
+<li><p><strong>Type of Elements</strong>:</p></li>
+</ul>
+<p>Lists can store mixed data types.</p>
+<p>Arrays require a single, fixed data type (e.g., all integers).</p>
+<ul class="simple">
+<li><p><strong>Dynamic vs Static</strong>:</p></li>
+</ul>
+<p>Lists are dynamic and resize automatically.</p>
+<p>Arrays are typically static and need manual resizing or reallocation.</p>
+<ul class="simple">
+<li><p><strong>Access and Manipulation</strong>:</p></li>
+</ul>
+<p>Both allow indexing and slicing.</p>
+<p>Arrays (especially NumPy) support fast, vectorized operations.</p>
+<ul class="simple">
+<li><p><strong>Best Use</strong>:</p></li>
+</ul>
+<p>Use lists for general-purpose, mixed-type data.</p>
+<p>Use arrays for numeric, performance-critical tasks.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="example-3">
 <h1>Example 3<a class="headerlink" href="#example-3" title="Link to this heading">#</a></h1>
@@ -616,6 +676,30 @@ After removal: [1 2 3 4 6]
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="new-question">
 <h1>New Question<a class="headerlink" href="#new-question" title="Link to this heading">#</a></h1>
+<p>: Remove Even Numbers from an Array</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">remove_evens</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">arr</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>  <span class="c1"># remove even number</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># move to next element only if current is kept</span>
+    <span class="k">return</span> <span class="n">arr</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+
+<span class="n">remove_evens</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 5, 7, 9]
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">

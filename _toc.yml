@@ -4,7 +4,7 @@
 format: jb-book
 root: intro
 parts:
-  - caption: DataStructure
+  - caption: Data Structure
 
     chapters:
       - file: 1_Intro_to_Python_Lab

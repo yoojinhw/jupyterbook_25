@@ -179,9 +179,10 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">DataStructure</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Structure</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="1_Intro_to_Python_Lab.html">Intro to Python Lab</a></li>
+
 
 
 
@@ -218,6 +219,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="7_Queue_Lab.html">Queue</a></li>
+
 
 
 
@@ -643,6 +645,34 @@ Date: 2025-03-20 Status: Present
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="new-question">
 <h1>New Question<a class="headerlink" href="#new-question" title="Link to this heading">#</a></h1>
+<p>: given a dictionary of student names and their scores, find the student with the highest score / calculate the average score.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scores</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;EWha&#39;</span><span class="p">:</span> <span class="mi">92</span><span class="p">,</span> <span class="s1">&#39;Yonsei&#39;</span><span class="p">:</span> <span class="mi">85</span><span class="p">,</span> <span class="s1">&#39;Hongik&#39;</span><span class="p">:</span> <span class="mi">78</span><span class="p">}</span>
+
+<span class="c1"># Find the highest score</span>
+<span class="n">max_score</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">scores</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+
+<span class="c1"># Find student(s) who have the highest score</span>
+<span class="n">top_students</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">score</span> <span class="ow">in</span> <span class="n">scores</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">score</span> <span class="o">==</span> <span class="n">max_score</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Highest score:&quot;</span><span class="p">,</span> <span class="n">max_score</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Top student(s):&quot;</span><span class="p">,</span> <span class="n">top_students</span><span class="p">)</span>
+
+<span class="c1"># Calculate average score</span>
+<span class="n">average_score</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">scores</span><span class="o">.</span><span class="n">values</span><span class="p">())</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Average score:&quot;</span><span class="p">,</span> <span class="n">average_score</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Highest score: 92
+Top student(s): [&#39;EWha&#39;]
+Average score: 85.0
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
