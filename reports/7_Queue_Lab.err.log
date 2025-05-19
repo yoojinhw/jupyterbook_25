@@ -15,23 +15,40 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-from DataStructureCode.LinkedQueue import *
-queue = LinkedQueue()
-queue.enqueue("Mon"); queue.enqueue("Tue"); queue.enqueue("Wed"); queue.enqueue("Thurs"); queue.enqueue("Fri")
-queue.printQueue()
-
-def reverseQueue(queue):
-
-
-reverseQueue(queue)
-print("After Reversing the queue:")
-queue.printQueue()
+select = input("Choose one of the followings (I/D/X): Insert(I)/Delete(D)/Exit(X) ==> ")
+queue = ListQueue()
+while (select != "X" and select != "x"):
+  if select=="I" or select =="i" :
+    data = input("Type Input Data ==> ")
+    queue.enqueue(data)
+    print(queue.size(), "number of elements, front : ", queue.front(), ", rear : ", queue.queue[queue.size()-1])
+  elif select=="D" or select =="d":
+    print("Dequeue: removed an element from the front of the queue: ", queue.dequeue())
+    print(queue.size(), "number of elements, front : ", queue.front(), ", rear : ", queue.queue[queue.size()-1])
+  else :
+    print("Wrong Insertion - should choose on of the followings (I/D/X): Insert(I)/Delete(D)/Exit(X)")
+    select = input("Choose one of the followings (I/D/X): Insert(I)/Delete(D)/Exit(X) ==> ")
+    print("Terminate the program!")
 ------------------
 
 
-[1;36m  Cell [1;32mIn[5], line 9[1;36m[0m
-[1;33m    reverseQueue(queue)[0m
-[1;37m    ^[0m
-[1;31mIndentationError[0m[1;31m:[0m expected an indented block after function definition on line 6
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mStdinNotImplementedError[0m                  Traceback (most recent call last)
+Cell [1;32mIn[7], line 1[0m
+[1;32m----> 1[0m select [38;5;241m=[39m [38;5;28;43minput[39;49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mChoose one of the followings (I/D/X): Insert(I)/Delete(D)/Exit(X) ==> [39;49m[38;5;124;43m"[39;49m[43m)[49m
+[0;32m      2[0m queue [38;5;241m=[39m ListQueue()
+[0;32m      3[0m [38;5;28;01mwhile[39;00m (select [38;5;241m!=[39m [38;5;124m"[39m[38;5;124mX[39m[38;5;124m"[39m [38;5;129;01mand[39;00m select [38;5;241m!=[39m [38;5;124m"[39m[38;5;124mx[39m[38;5;124m"[39m):
 
+File [1;32m~\AppData\Local\Programs\Python\Python310\lib\site-packages\ipykernel\kernelbase.py:1281[0m, in [0;36mKernel.raw_input[1;34m(self, prompt)[0m
+[0;32m   1279[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28mself[39m[38;5;241m.[39m_allow_stdin:
+[0;32m   1280[0m     msg [38;5;241m=[39m [38;5;124m"[39m[38;5;124mraw_input was called, but this frontend does not support input requests.[39m[38;5;124m"[39m
+[1;32m-> 1281[0m     [38;5;28;01mraise[39;00m StdinNotImplementedError(msg)
+[0;32m   1282[0m [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_input_request(
+[0;32m   1283[0m     [38;5;28mstr[39m(prompt),
+[0;32m   1284[0m     [38;5;28mself[39m[38;5;241m.[39m_parent_ident[[38;5;124m"[39m[38;5;124mshell[39m[38;5;124m"[39m],
+[0;32m   1285[0m     [38;5;28mself[39m[38;5;241m.[39mget_parent([38;5;124m"[39m[38;5;124mshell[39m[38;5;124m"[39m),
+[0;32m   1286[0m     password[38;5;241m=[39m[38;5;28;01mFalse[39;00m,
+[0;32m   1287[0m )
+
+[1;31mStdinNotImplementedError[0m: raw_input was called, but this frontend does not support input requests.
 

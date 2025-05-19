@@ -179,9 +179,10 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">DataStructure</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Structure</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="1_Intro_to_Python_Lab.html">Intro to Python Lab</a></li>
+
 
 
 
@@ -218,6 +219,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="7_Queue_Lab.html">Queue</a></li>
+
 
 
 
@@ -480,7 +482,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;DataStructureCode.ListNode.ListNode object at 0x000001FE71CEAFB0&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;DataStructureCode.ListNode.ListNode object at 0x0000025D2215E230&gt;
 5
 None
 </pre></div>
@@ -541,7 +543,7 @@ Elements in the linked list after inserting 10 in index 2:
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Elements in the linked list: 
 5 4 3 2 1 
 Elements in the linked list: 
-5 4 3 2 1 &lt;DataStructureCode.SimpleLinkedList.SimpleLinkedList object at 0x000001FE71CE9E40&gt; 
+5 4 3 2 1 &lt;DataStructureCode.SimpleLinkedList.SimpleLinkedList object at 0x0000025D2215DA20&gt; 
 Element in the 3rd index node of the linked list: 
 </pre></div>
 </div>
@@ -667,9 +669,90 @@ Element in the linked list after using get:
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="explore-other-methods-in-singlylinkedlist-and-circularlinkedlist-class">
 <h1>Explore Other Methods in SinglyLinkedList and CircularLinkedList Class<a class="headerlink" href="#explore-other-methods-in-singlylinkedlist-and-circularlinkedlist-class" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">SimpleLinkedList</span><span class="p">()</span>
+<span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span> <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span> <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span> <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">a</span><span class="o">.</span><span class="n">printList</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">isEmpty</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">size</span><span class="p">())</span>
+
+<span class="n">a</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+<span class="n">a</span><span class="o">.</span><span class="n">printList</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 3 2 5 7 
+False
+5
+7 5 2 3 1 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">CircularLinkedList</span><span class="p">()</span>
+<span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span> <span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span> <span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span> <span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+
+<span class="n">b</span><span class="o">.</span><span class="n">printList</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">size</span><span class="p">())</span>
+<span class="n">b</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+<span class="n">b</span><span class="o">.</span><span class="n">printList</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 3 2 5 7 
+5
+7 5 2 3 1 
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="new-question">
 <h1>New Question<a class="headerlink" href="#new-question" title="Link to this heading">#</a></h1>
+<p>: Remove all duplicate values so that each element appears only once.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">CircularLinkedList</span><span class="p">()</span>
+<span class="n">c</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="n">c</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span> <span class="n">c</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span> <span class="n">c</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span> <span class="n">c</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">printList</span><span class="p">()</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">remove_duplicates</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">numItems</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span>
+
+    <span class="n">seen</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="n">prev</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tail</span>
+    <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tail</span><span class="o">.</span><span class="n">next</span>  <span class="c1"># head</span>
+    <span class="n">first_pass</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">while</span> <span class="n">first_pass</span> <span class="ow">or</span> <span class="n">current</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tail</span><span class="o">.</span><span class="n">next</span><span class="p">:</span>
+        <span class="n">first_pass</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="n">current</span><span class="o">.</span><span class="n">data</span> <span class="ow">in</span> <span class="n">seen</span><span class="p">:</span>
+            <span class="n">prev</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">next</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">numItems</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">next</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">seen</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">current</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+            <span class="n">prev</span> <span class="o">=</span> <span class="n">current</span>
+            <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">next</span>
+
+<span class="n">remove_duplicates</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">printList</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 3 3 5 7 
+1 3 5 7 
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">

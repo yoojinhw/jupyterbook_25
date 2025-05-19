@@ -179,9 +179,10 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">DataStructure</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Structure</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="1_Intro_to_Python_Lab.html">Intro to Python Lab</a></li>
+
 
 
 
@@ -218,6 +219,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="7_Queue_Lab.html">Queue</a></li>
+
 
 
 
@@ -541,18 +543,10 @@ This function should modify the original stack.</p></li>
 <span class="c1"># a function that reverses the characters in a string using a stack, without modifying the original stack.</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">reverse</span><span class="p">(</span><span class="n">original_stack</span><span class="p">):</span>
-    <span class="n">temp_stack</span> <span class="o">=</span> <span class="n">original_stack</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>  <span class="c1"># 복사본 만들기</span>
-    <span class="n">rev_stack</span> <span class="o">=</span> <span class="n">ListStack</span><span class="p">()</span>
-
-    <span class="k">while</span> <span class="ow">not</span> <span class="n">temp_stack</span><span class="o">.</span><span class="n">isEmpty</span><span class="p">():</span>
-        <span class="n">rev_stack</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">temp_stack</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span>
-
-    <span class="k">return</span> <span class="n">rev_stack</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-     <span class="n">new_stack</span> <span class="o">=</span> <span class="n">ListStack</span><span class="p">()</span>
-     <span class="n">new_stack</span><span class="o">.</span><span class="n">items</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">[:]</span>  
-     <span class="k">return</span> <span class="n">new_stack</span>
+    <span class="n">reversed_stack</span> <span class="o">=</span> <span class="n">ListStack</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">original_stack</span><span class="o">.</span><span class="n">size</span><span class="p">()):</span>
+        <span class="n">reversed_stack</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">original_stack</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">reversed_stack</span>
 
 <span class="n">rev_stack</span> <span class="o">=</span> <span class="n">reverse</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>
 <span class="n">rev_stack</span><span class="o">.</span><span class="n">printStack</span><span class="p">()</span>
@@ -562,23 +556,8 @@ This function should modify the original stack.</p></li>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Elements from top to bottom: 
 400 300 200 100 
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">             </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">21</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span>      <span class="n">new_stack</span><span class="o">.</span><span class="n">items</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">[:]</span>  
-<span class="g g-Whitespace">     </span><span class="mi">19</span>      <span class="k">return</span> <span class="n">new_stack</span>
-<span class="ne">---&gt; </span><span class="mi">21</span> <span class="n">rev_stack</span> <span class="o">=</span> <span class="n">reverse</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="n">rev_stack</span><span class="o">.</span><span class="n">printStack</span><span class="p">()</span>
-
-<span class="nn">Cell In[4], line 8,</span> in <span class="ni">reverse</span><span class="nt">(original_stack)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="k">def</span><span class="w"> </span><span class="nf">reverse</span><span class="p">(</span><span class="n">original_stack</span><span class="p">):</span>
-<span class="ne">----&gt; </span><span class="mi">8</span>     <span class="n">temp_stack</span> <span class="o">=</span> <span class="n">original_stack</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>  <span class="c1"># 복사본 만들기</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="n">rev_stack</span> <span class="o">=</span> <span class="n">ListStack</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="k">while</span> <span class="ow">not</span> <span class="n">temp_stack</span><span class="o">.</span><span class="n">isEmpty</span><span class="p">():</span>
-
-<span class="ne">AttributeError</span>: &#39;ListStack&#39; object has no attribute &#39;copy&#39;
+Elements from top to bottom: 
+100 200 300 400 
 </pre></div>
 </div>
 </div>
@@ -598,7 +577,7 @@ This function should modify the original stack.</p></li>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reversed (in-place) stack:&quot;</span><span class="p">)</span>
 <span class="n">reverseInPlace</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>
-<span class="n">stack</span><span class="o">.</span><span class="n">printStack</span><span class="p">()</span>
+<span class="n">rev_stack</span><span class="o">.</span><span class="n">printStack</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -607,6 +586,7 @@ This function should modify the original stack.</p></li>
 400 300 200 100 
 Reversed (in-place) stack:
 Elements from top to bottom: 
+100 200 300 400 
 </pre></div>
 </div>
 </div>
