@@ -3,7 +3,27 @@
 
 format: jb-book
 root: intro
-chapters:
-- file: markdown
-- file: notebooks
-- file: markdown-notebooks
+parts:
+  - caption: DataStructure
+
+    chapters:
+      - file: 1_Intro_to_Python_Lab
+        title: Intro to Python
+
+      - file: 2_Intro_to_Python_Code_Lab
+        title: Intro to Python Code
+
+      - file: 3_Recursion_Lab
+        title: Recursion
+
+      - file: 4_Array_Lab
+        title: Array
+
+      - file: 5_Linked_List_Lab
+        title: Linked List
+
+      - file: 6_Stack_Lab
+        title: Stack
+
+      - file: 7_Queue_Lab
+        title: Queue

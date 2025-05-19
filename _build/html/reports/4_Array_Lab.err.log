@@ -1,0 +1,51 @@
+Traceback (most recent call last):
+  File "C:\Users\rullu\AppData\Local\Programs\Python\Python310\lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+  File "C:\Users\rullu\AppData\Local\Programs\Python\Python310\lib\site-packages\nbclient\client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "C:\Users\rullu\AppData\Local\Programs\Python\Python310\lib\site-packages\jupyter_core\utils\__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+  File "C:\Users\rullu\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "C:\Users\rullu\AppData\Local\Programs\Python\Python310\lib\site-packages\nbclient\client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\rullu\AppData\Local\Programs\Python\Python310\lib\site-packages\nbclient\client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\rullu\AppData\Local\Programs\Python\Python310\lib\site-packages\nbclient\client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Import the Array class from the Array.py file
+# from Array import *
+from Array import MyArray
+
+# Create an instance of the Array class
+arr = MyArray([1, 2, 3, 4, 5])
+
+# Print the original array
+print("Original array:", arr.array)
+
+# Insert 6 at the last index (after the last element)
+arr.myInsert(6, len(arr.array))  # Inserts 6 at the end
+print("After insertion:", arr.array)
+
+# Remove element 5 from the array
+arr.myRemove(5)  # Removes element 5 from the array
+print("After removal:", arr.array)
+
+# Find index for element 3
+arr.myIndex(3)
+------------------
+
+
+[1;31m-----------------------------------------------------------[0m
+[1;31mModuleNotFoundError[0m       Traceback (most recent call last)
+Cell [1;32mIn[2], line 3[0m
+[0;32m      1[0m [38;5;66;03m# Import the Array class from the Array.py file[39;00m
+[0;32m      2[0m [38;5;66;03m# from Array import *[39;00m
+[1;32m----> 3[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mArray[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m MyArray
+[0;32m      5[0m [38;5;66;03m# Create an instance of the Array class[39;00m
+[0;32m      6[0m arr [38;5;241m=[39m MyArray([[38;5;241m1[39m, [38;5;241m2[39m, [38;5;241m3[39m, [38;5;241m4[39m, [38;5;241m5[39m])
+
+[1;31mModuleNotFoundError[0m: No module named 'Array'
+
