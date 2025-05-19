@@ -15,19 +15,37 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-from matplotlib import rcParams, cycler
-import matplotlib.pyplot as plt
-import numpy as np
-plt.ion()
+# Import the Array class from the Array.py file
+# from Array import *
+from Array import MyArray
+
+# Create an instance of the Array class
+arr = MyArray([1, 2, 3, 4, 5])
+
+# Print the original array
+print("Original array:", arr.array)
+
+# Insert 6 at the last index (after the last element)
+arr.myInsert(6, len(arr.array))  # Inserts 6 at the end
+print("After insertion:", arr.array)
+
+# Remove element 5 from the array
+arr.myRemove(5)  # Removes element 5 from the array
+print("After removal:", arr.array)
+
+# Find index for element 3
+arr.myIndex(3)
 ------------------
 
 
-[1;31m-------------------------------------------------------------------------[0m
-[1;31mModuleNotFoundError[0m                     Traceback (most recent call last)
-Cell [1;32mIn[1], line 1[0m
-[1;32m----> 1[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mmatplotlib[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m rcParams, cycler
-[0;32m      2[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpyplot[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01mplt[39;00m
-[0;32m      3[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mnumpy[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01mnp[39;00m
+[1;31m-----------------------------------------------------------[0m
+[1;31mModuleNotFoundError[0m       Traceback (most recent call last)
+Cell [1;32mIn[2], line 3[0m
+[0;32m      1[0m [38;5;66;03m# Import the Array class from the Array.py file[39;00m
+[0;32m      2[0m [38;5;66;03m# from Array import *[39;00m
+[1;32m----> 3[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mArray[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m MyArray
+[0;32m      5[0m [38;5;66;03m# Create an instance of the Array class[39;00m
+[0;32m      6[0m arr [38;5;241m=[39m MyArray([[38;5;241m1[39m, [38;5;241m2[39m, [38;5;241m3[39m, [38;5;241m4[39m, [38;5;241m5[39m])
 
-[1;31mModuleNotFoundError[0m: No module named 'matplotlib'
+[1;31mModuleNotFoundError[0m: No module named 'Array'
 

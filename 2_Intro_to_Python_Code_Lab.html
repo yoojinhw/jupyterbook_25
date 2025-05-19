@@ -1,0 +1,779 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Intro to Python code &#8212; My data structure book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '2_Intro_to_Python_Code_Lab';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Recursion" href="3_Recursion_Lab.html" />
+    <link rel="prev" title="Intro to Python Lab" href="1_Intro_to_Python_Lab.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo_datastructure.jpg" class="logo__image only-light" alt="My data structure book - Home"/>
+    <script>document.write(`<img src="_static/logo_datastructure.jpg" class="logo__image only-dark" alt="My data structure book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">DataStructure</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="1_Intro_to_Python_Lab.html">Intro to Python Lab</a></li>
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Intro to Python code</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="3_Recursion_Lab.html">Recursion</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="4_Array_Lab.html">Array</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="5_Linked_List_Lab.html">Linked List</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="6_Stack_Lab.html">Stack</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="7_Queue_Lab.html">Queue</a></li>
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/yoojinhw/jupyterbook_25" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/yoojinhw/jupyterbook_25/issues/new?title=Issue%20on%20page%20%2F2_Intro_to_Python_Code_Lab.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/2_Intro_to_Python_Code_Lab.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Intro to Python code</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Intro to Python code</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up">Set Up</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modify-sys-path-to-import-external-modules">Modify sys.path to Import External Modules</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#module-and-package">Module and Package</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module">Module</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#package">Package</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#new-question">New Question</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="intro-to-python-code">
+<h1>Intro to Python code<a class="headerlink" href="#intro-to-python-code" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="set-up">
+<h1>Set Up<a class="headerlink" href="#set-up" title="Link to this heading">#</a></h1>
+<section id="modify-sys-path-to-import-external-modules">
+<h2>Modify sys.path to Import External Modules<a class="headerlink" href="#modify-sys-path-to-import-external-modules" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;C:/Users/rullu/OneDrive/바탕화~1-DESKTOP-1EHQRE9-9050723/EWHA/JupyterBook/template_jupyterbook&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="module-and-package">
+<h1>Module and Package<a class="headerlink" href="#module-and-package" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># List</span>
+<span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">my_list</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<section id="module">
+<h2>Module<a class="headerlink" href="#module" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import the Array class from the Array.py file</span>
+<span class="c1"># from Array import *</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructureCode.Array</span><span class="w"> </span><span class="kn">import</span> <span class="n">MyArray</span>
+
+<span class="c1"># Create an instance of the Array class</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="n">MyArray</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+
+<span class="c1"># Print the original array</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original array:&quot;</span><span class="p">,</span> <span class="n">arr</span><span class="o">.</span><span class="n">array</span><span class="p">)</span>
+
+<span class="c1"># Insert 6 at the last index (after the last element)</span>
+<span class="n">arr</span><span class="o">.</span><span class="n">myInsert</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">array</span><span class="p">))</span>  <span class="c1"># Inserts 6 at the end</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After insertion:&quot;</span><span class="p">,</span> <span class="n">arr</span><span class="o">.</span><span class="n">array</span><span class="p">)</span>
+
+<span class="c1"># Remove element 5 from the array</span>
+<span class="n">arr</span><span class="o">.</span><span class="n">myRemove</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># Removes element 5 from the array</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After removal:&quot;</span><span class="p">,</span> <span class="n">arr</span><span class="o">.</span><span class="n">array</span><span class="p">)</span>
+
+<span class="c1"># Find index for element 3</span>
+<span class="n">arr</span><span class="o">.</span><span class="n">myIndex</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original array: [1 2 3 4 5]
+After insertion: [1 2 3 4 5 6]
+Element found at position: 4
+After removal: [1 2 3 4 6]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="package">
+<h2>Package<a class="headerlink" href="#package" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Create <code class="docutils literal notranslate"><span class="pre">DataStructureCode/</span></code> folder.</p></li>
+<li><p>Then, create an empty <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file inside the <code class="docutils literal notranslate"><span class="pre">DataStructureCode/</span></code> folder. This file is required for the folder to be recognized as a package.</p></li>
+<li><p>Copy and paste <code class="docutils literal notranslate"><span class="pre">Array.py</span></code> file inside of <code class="docutils literal notranslate"><span class="pre">DataStructureCode/</span></code> folder.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">DataStructureCode.Array</span><span class="w"> </span><span class="kn">import</span> <span class="n">MyArray</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="n">MyArray</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original array:&quot;</span><span class="p">,</span> <span class="n">arr</span><span class="o">.</span><span class="n">array</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original array: [1 2 3 4 5]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="exercise">
+<h1>Exercise<a class="headerlink" href="#exercise" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dictionary</span>
+<span class="n">attendance</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2025-03-10&quot;</span><span class="p">,</span> <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">attendance</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">attendance</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">])</span>
+
+<span class="n">my_attendance</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">my_attendance</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">attendance</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_attendance</span><span class="p">)</span>
+<span class="n">my_attendance</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2025-03-15&quot;</span><span class="p">,</span> <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_attendance</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-03-10
+1
+[{&#39;date&#39;: &#39;2025-03-10&#39;, &#39;status&#39;: 1}]
+[{&#39;date&#39;: &#39;2025-03-10&#39;, &#39;status&#39;: 1}, {&#39;date&#39;: &#39;2025-03-15&#39;, &#39;status&#39;: 0}]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Attendance</span><span class="p">:</span>
+  <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">department</span><span class="p">,</span><span class="n">attendance</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="nb">id</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">department</span> <span class="o">=</span> <span class="n">department</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">attendance</span> <span class="o">=</span> <span class="n">attendance</span>
+<span class="n">person1</span> <span class="o">=</span> <span class="n">Attendance</span><span class="p">(</span><span class="mi">123456</span><span class="p">,</span><span class="s2">&quot;Ewha Kim&quot;</span><span class="p">,</span><span class="s2">&quot;AI&quot;</span><span class="p">,</span><span class="n">my_attendance</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ID=&quot;</span><span class="p">,</span> <span class="n">person1</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s2">&quot;, Name = &quot;</span><span class="p">,</span><span class="n">person1</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s2">&quot;, Department = &quot;</span><span class="p">,</span> <span class="n">person1</span><span class="o">.</span><span class="n">department</span><span class="p">,</span><span class="s2">&quot;, Attendance = &quot;</span><span class="p">,</span><span class="n">person1</span><span class="o">.</span><span class="n">attendance</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ID= 123456 , Name =  Ewha Kim , Department =  AI , Attendance =  [{&#39;date&#39;: &#39;2025-03-10&#39;, &#39;status&#39;: 1}, {&#39;date&#39;: &#39;2025-03-15&#39;, &#39;status&#39;: 0}]
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple">
+<li><p>Add a method <code class="docutils literal notranslate"><span class="pre">mark_attendance(date,</span> <span class="pre">status)</span></code> that allows the recording of attendance for a particular date. The status should be either: <code class="docutils literal notranslate"><span class="pre">1</span></code> for present and <code class="docutils literal notranslate"><span class="pre">0</span></code> for absent.</p></li>
+<li><p>Add a method <code class="docutils literal notranslate"><span class="pre">view_attendance()</span></code> that prints out the attendance record for the student. The output should display each entry with the date and the attendance status (Present/Absent).</p></li>
+<li><p>Add a method <code class="docutils literal notranslate"><span class="pre">update_attendance(date,</span> <span class="pre">status)</span></code> that updates the attendance record for a specific date. If the given date is not found in the records, return a message indicating that the date is not found.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Attendance</span><span class="p">:</span>
+
+  <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">student_id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">department</span><span class="p">,</span> <span class="n">attendance</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">student_id</span> <span class="o">=</span> <span class="n">student_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">department</span> <span class="o">=</span> <span class="n">department</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">attendance</span> <span class="o">=</span> <span class="n">attendance</span> <span class="k">if</span> <span class="n">attendance</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">[]</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">mark_attendance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">status</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">attendance</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="n">date</span><span class="p">,</span> <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="n">status</span><span class="p">})</span>
+
+  <span class="k">def</span><span class="w"> </span><span class="nf">view_attendance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Attendance Record for&quot;</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">attendance</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">record</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+              <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;Present&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">Status</span> <span class="o">=</span> <span class="s2">&quot;Absent&quot;</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Date:&quot;</span><span class="p">,</span> <span class="n">record</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">],</span> <span class="s2">&quot;Status:&quot;</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+
+  <span class="k">def</span><span class="w"> </span><span class="nf">update_attendance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">status</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">attendance</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">record</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">date</span><span class="p">:</span>
+                <span class="n">record</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">status</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;attendance Updated for </span><span class="si">{date}</span><span class="s2"> to {&#39;Present&#39; if status == 1 else &#39;Absent&#39;}&quot;</span><span class="p">)</span>
+                <span class="k">return</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Attendance record for </span><span class="si">{date}</span><span class="s2"> not found.&quot;</span><span class="p">)</span>
+
+<span class="n">my_attendance</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2025-03-10&quot;</span><span class="p">,</span> <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2025-03-15&quot;</span><span class="p">,</span> <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}]</span>
+<span class="n">person1</span> <span class="o">=</span> <span class="n">Attendance</span><span class="p">(</span><span class="mi">123456</span><span class="p">,</span> <span class="s2">&quot;Ewha Kim&quot;</span><span class="p">,</span> <span class="s2">&quot;AI&quot;</span><span class="p">,</span> <span class="n">my_attendance</span><span class="p">)</span>
+<span class="n">person1</span><span class="o">.</span><span class="n">view_attendance</span><span class="p">()</span>
+<span class="n">person1</span><span class="o">.</span><span class="n">mark_attendance</span><span class="p">(</span><span class="s2">&quot;2025-03-20&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">person1</span><span class="o">.</span><span class="n">update_attendance</span><span class="p">(</span><span class="s2">&quot;2025-03-15&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">person1</span><span class="o">.</span><span class="n">update_attendance</span><span class="p">(</span><span class="s2">&quot;2025-03-25&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">person1</span><span class="o">.</span><span class="n">view_attendance</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attendance Record for Ewha Kim :
+Date: 2025-03-10 Status: Present
+Date: 2025-03-15 Status: Present
+attendance Updated for {date} to {&#39;Present&#39; if status == 1 else &#39;Absent&#39;}
+Attendance record for {date} not found.
+Attendance Record for Ewha Kim :
+Date: 2025-03-10 Status: Present
+Date: 2025-03-15 Status: Present
+Date: 2025-03-20 Status: Present
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="new-question">
+<h1>New Question<a class="headerlink" href="#new-question" title="Link to this heading">#</a></h1>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="1_Intro_to_Python_Lab.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Intro to Python Lab</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="3_Recursion_Lab.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Recursion</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Intro to Python code</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up">Set Up</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modify-sys-path-to-import-external-modules">Modify sys.path to Import External Modules</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#module-and-package">Module and Package</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module">Module</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#package">Package</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#new-question">New Question</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Yoojin Hwang
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

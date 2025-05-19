@@ -15,19 +15,23 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-from matplotlib import rcParams, cycler
-import matplotlib.pyplot as plt
-import numpy as np
-plt.ion()
+from DataStructureCode.LinkedQueue import *
+queue = LinkedQueue()
+queue.enqueue("Mon"); queue.enqueue("Tue"); queue.enqueue("Wed"); queue.enqueue("Thurs"); queue.enqueue("Fri")
+queue.printQueue()
+
+def reverseQueue(queue):
+
+
+reverseQueue(queue)
+print("After Reversing the queue:")
+queue.printQueue()
 ------------------
 
 
-[1;31m-------------------------------------------------------------------------[0m
-[1;31mModuleNotFoundError[0m                     Traceback (most recent call last)
-Cell [1;32mIn[1], line 1[0m
-[1;32m----> 1[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mmatplotlib[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m rcParams, cycler
-[0;32m      2[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpyplot[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01mplt[39;00m
-[0;32m      3[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mnumpy[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01mnp[39;00m
+[1;36m  Cell [1;32mIn[5], line 9[1;36m[0m
+[1;33m    reverseQueue(queue)[0m
+[1;37m    ^[0m
+[1;31mIndentationError[0m[1;31m:[0m expected an indented block after function definition on line 6
 
-[1;31mModuleNotFoundError[0m: No module named 'matplotlib'
 

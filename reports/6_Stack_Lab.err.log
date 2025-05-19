@@ -1,0 +1,62 @@
+Traceback (most recent call last):
+  File "C:\Users\rullu\AppData\Local\Programs\Python\Python310\lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+  File "C:\Users\rullu\AppData\Local\Programs\Python\Python310\lib\site-packages\nbclient\client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "C:\Users\rullu\AppData\Local\Programs\Python\Python310\lib\site-packages\jupyter_core\utils\__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+  File "C:\Users\rullu\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "C:\Users\rullu\AppData\Local\Programs\Python\Python310\lib\site-packages\nbclient\client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\rullu\AppData\Local\Programs\Python\Python310\lib\site-packages\nbclient\client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\rullu\AppData\Local\Programs\Python\Python310\lib\site-packages\nbclient\client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+stack = ListStack()
+stack.push(100); stack.push(200); stack.push(300); stack.push(400)
+stack.printStack()
+
+# a function that reverses the characters in a string using a stack, without modifying the original stack.
+
+def reverse(original_stack):
+    temp_stack = original_stack.copy()  # 복사본 만들기
+    rev_stack = ListStack()
+
+    while not temp_stack.isEmpty():
+        rev_stack.push(temp_stack.pop())
+
+    return rev_stack
+
+def copy(self):
+     new_stack = ListStack()
+     new_stack.items = self.items[:]  
+     return new_stack
+
+rev_stack = reverse(stack)
+rev_stack.printStack()
+------------------
+
+----- stdout -----
+Elements from top to bottom: 
+400 300 200 100
+------------------
+
+[1;31m------------------------------------------------------------[0m
+[1;31mAttributeError[0m             Traceback (most recent call last)
+Cell [1;32mIn[4], line 21[0m
+[0;32m     18[0m      new_stack[38;5;241m.[39mitems [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mitems[:]  
+[0;32m     19[0m      [38;5;28;01mreturn[39;00m new_stack
+[1;32m---> 21[0m rev_stack [38;5;241m=[39m [43mreverse[49m[43m([49m[43mstack[49m[43m)[49m
+[0;32m     22[0m rev_stack[38;5;241m.[39mprintStack()
+
+Cell [1;32mIn[4], line 8[0m, in [0;36mreverse[1;34m(original_stack)[0m
+[0;32m      7[0m [38;5;28;01mdef[39;00m[38;5;250m [39m[38;5;21mreverse[39m(original_stack):
+[1;32m----> 8[0m     temp_stack [38;5;241m=[39m [43moriginal_stack[49m[38;5;241;43m.[39;49m[43mcopy[49m()  [38;5;66;03m# 복사본 만들기[39;00m
+[0;32m      9[0m     rev_stack [38;5;241m=[39m ListStack()
+[0;32m     11[0m     [38;5;28;01mwhile[39;00m [38;5;129;01mnot[39;00m temp_stack[38;5;241m.[39misEmpty():
+
+[1;31mAttributeError[0m: 'ListStack' object has no attribute 'copy'
+
