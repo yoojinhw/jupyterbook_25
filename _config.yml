@@ -32,5 +32,7 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+  extra_head: |
+    <meta charset="UTF-8">
 exclude:
   - references.bib
