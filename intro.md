@@ -5,7 +5,7 @@ This book includes key topics such as Python basics, Recursion, Arrays, Linked L
 
 Check out the content pages bundled with this book to see more.
 
-## 📚 Table of Contents
+## Table of Contents
 
 - [Intro to Python](1_Intro_to_Python_Lab)
 - [Intro to Python Code](2_Intro_to_Python_Code_Lab)
